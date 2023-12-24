@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <mete charset=""usf-8>
+        <title>新春おみくじ</title>
+        <link rel="stylesheet" type="text/css" href="medeta.css">
+
+    </head>
+    <div style="text-align:center;">
+    <h2>あけましておめでとうございます！！</h2>
+    <body>
+        <div style=" border: 4px solid #fffaf0; padding: 2px;">
+        <div style=" background: #fffaf0; font-size: 100%; padding: 20px;" width="650" height="380">
+        
+            
+            <!--https://bitbeans.com/blog/javascript_omikuji/-->
+            <button id="draw" class="btn">おみくじを引く</button>
+            <p id="start" class="start">
+                <br><br>
+                <img id="rotate" src="omikuji.png" width="100" alt="おみくじ">
+            </p>
+            <p>
+                <img src="" id="fortune" class="fortune">
+            </p>
+
+            <script>
+
+                const results = [
+                    'daikichi.png',
+                    'kichi.png',
+                    'tyuukichi.png',
+                    'tyuukichi.png',
+                    'syoukichi.png',
+                    'syoukichi.png',
+                    'suekichi.png',
+                    'suekichi.png',
+                    'kyou.png'
+                ];
+            
+                const elem = document.getElementById('draw');
+                const element = document.getElementById('start');
+                const rotateItem = document.getElementById('rotate');
+                const target = document.getElementById('#draw');
+            
+                elem.addEventListener('click', function() {
+                if (element != null) {
+                    tatefuri();
+                }
+                });
+            
+                function tatefuri() {
+                element.animate(
+                    [{
+                    transform: 'translateY(0)'
+                    }, {
+                    transform: 'translateY(-30px)'
+                    }, {
+                    transform: 'translateY(0)'
+                    }], {
+                    duration: 700,
+                    iterations: 3
+                    });
+                setTimeout(function() {
+                    kaiten();
+                }, 2400);
+                }
+            
+                function kaiten() {
+                element.animate(
+                    [{
+                    transform: 'rotate(0deg)'
+                    }, {
+                    transform: 'rotate(180deg)'
+                    }], {
+                    duration: 700,
+                    easing: 'linear',
+                    fill: 'forwards'
+                    });
+                setTimeout(function() {
+                    touka();
+                    btn();
+                }, 1000);
+                }
+            
+                function btn() {
+                target.animate(
+                    [{
+                    opacity: 1
+                    }, {
+                    opacity: 0
+                    }], {
+                    duration: 500,
+                    fill: 'forwards'
+                    });
+                setTimeout(function() {
+                    target.remove();
+                }, 500);
+                }
+            
+                function touka() {
+                element.animate(
+                    [{
+                    opacity: 1
+                    }, {
+                    opacity: 0
+                    }], {
+                    duration: 500,
+                    fill: 'forwards'
+                    });
+                setTimeout(function() {
+                    element.remove();
+                    fortuneAnime();
+                }, 500);
+                }
+            
+                function fortuneAnime() {
+                const key = Math.floor(Math.random() * results.length);
+                const fortune = document.getElementById("fortune");
+                fortune.style.width = '150Spx';
+                fortune.style.height = 'auto';
+                fortune.src = results[key];
+                fortune.animate(
+                    [{
+                    transform: 'translateY(0) scale(1)'
+                    }, {
+                    transform: 'translateY(-30px)'
+                    }, {
+                    transform: 'scale(1)'
+                    }, {
+                    transform: 'scale(1.1)'
+                    }, {
+                    transform: 'translateY(0) scale(1)'
+                    }], {
+                    duration: 1000,
+                    fill: 'forwards'
+                    });
+                } 
+                
+            </script>
+        </div>
+        </div>
+        </div>
+    </body>
