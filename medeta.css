@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+body{
+    background-color:#ff6347;
+    font-family:'HGP行書体', serif;
+    color:#fff;
+}
+h1{
+    font-family:'DotGothic16', sans-serif;
+    color:#fff;
+    position: relative;
+    display: inline-block;
+    padding: 0 65px;
+    text-align: center;
+}
+em.sample1{
+    font-size:24px;
+}
+blockquote{
+    border: solid 2px;
+    background-color: #2018ff;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 15px;
+}
+.btn {
+    font-family:'HGP行書体', serif;
+    border-radius: 5px;
+    background-color: #ebd842;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+  }
